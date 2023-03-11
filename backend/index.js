@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const mongodbURL = "mongodb+srv://harshit69:harshit69@cluster0.bcbhzzx.mongodb.net/?retryWrites=true&w=majority";
+const mongodbURL = process.env.mongodbURL;
 const port = process.env.port || 8080;
 
 // Create a new Express.js app
@@ -41,7 +41,6 @@ const Room = mongoose.model("Room", roomSchema);
 const bookingSchema = new mongoose.Schema(
   {
     userEmail: { type: String, required: true },
-    userName: { type: String, required: true },
     roomNumber: { type: String, required: true },
     startTime: { type: Date, required: true },
     endTime: { type: Date, required: true },
@@ -133,7 +132,6 @@ app.post("/bookings", async (req, res) => {
   } else {
     const booking = new Booking({
       userEmail: req.body.userEmail,
-      userName: req.body.userName,
       roomNumber: req.body.roomNumber,
       startTime: req.body.startTime,
       endTime: req.body.endTime,
