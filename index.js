@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const mongodbURL = "mongodb+srv://harshit69:harshit69@cluster0.bcbhzzx.mongodb.net/?retryWrites=true&w=majority";
+const mongodbURL = "mongodb+srv://harshit:harshit@cluster0.exqs1sk.mongodb.net/?retryWrites=true&w=majority";
 const port = process.env.port || 8080;
 
 // Create a new Express.js app
